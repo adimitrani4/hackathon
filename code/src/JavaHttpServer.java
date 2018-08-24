@@ -10,8 +10,8 @@ public class JavaHttpServer {
 		try {
 			HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
 			System.out.println("server started at " + port);
-			server.createContext("/", new RootHandler());
-			server.createContext("/login", new LoginHandler());
+			//server.createContext("/", new RootHandler());
+			server.createContext("/", new generalHandler());
 			//server.createContext("/echoHeader", new EchoHeaderHandler());
 			//server.createContext("/echoGet", new EchoGetHandler());
 			//server.createContext("/echoPost", new EchoPostHandler());
