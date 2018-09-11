@@ -12,9 +12,6 @@ public class JavaHttpServer {
 			System.out.println("server started at " + port);
 			//server.createContext("/", new RootHandler());
 			server.createContext("/", new generalHandler());
-			//server.createContext("/echoHeader", new EchoHeaderHandler());
-			//server.createContext("/echoGet", new EchoGetHandler());
-			//server.createContext("/echoPost", new EchoPostHandler());
 			server.setExecutor(null);
 			server.start();
 		}
