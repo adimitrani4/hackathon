@@ -12,6 +12,7 @@ public class JavaHttpServer {
 			System.out.println("server started at " + port);
 			//server.createContext("/", new RootHandler());
 			server.createContext("/", new generalHandler());
+			server.createContext("/requests", new requestHandler());
 			server.setExecutor(null);
 			server.start();
 		}
