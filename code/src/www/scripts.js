@@ -7,21 +7,20 @@ $("#submiter").click(function(){
     $.getJSON(url, function(data) {
         var events = data.resultsPage.results.event;
         console.log(events);
-
+        $('.events').append('<h1>Upcoming Events</h1>');
         events.forEach(function(item, index, array) {
-            var moment = require('moment');
-            var event_month = moment((array[index].start.datetime));
-            //var event_day = moment(array[index].start.datetime).format('D');
-            //var event_date = '<span class="month">'+ event_month +'</span><span class="day">'+ event_day +'</span>';
+            // var event_month = (array[index].start.date);
+            // var event_day = array[index].start.datetime;
+            // var event_date = '<span class="month">'+ event_month +'</span><span class="day">'+ event_day +'</span>';
 
             var event_performer = array[index].performance[0].artist.displayName;
             var event_venue = array[index].venue.displayName;
             var event_city = array[index].location.city;
             var event_link = array[index].uri;
-            $('.events').append( '<p>' + event_performer + ' @ ' + event_venue + '</p><p>' + event_city + '</p><p><a href="' + event_link + '">More details</a></p>');
+            var event_details =  '<p>' + event_performer + ' @ ' + event_venue + '</p><p>' + event_city + '</p><p><a href="' + event_link + '">More details</a></p>';
 
             // if(event_month != 'Invalid date' && event_day != 'Invalid date') {
-                // $('.events').append('<li><div class="date">' + event_date + '</div>' + event_details + '</li>');
+                $('.events').append('<li><div class="date">' + array[index].start.date + '</div>' + event_details + '</li>');
             // }
         });
     });
