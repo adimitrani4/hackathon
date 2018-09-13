@@ -4,11 +4,12 @@ $("#submiter").click(function(){
     // Create a request variable and assign a new XMLHttpRequest object to it.
     // using the GET request to get location
     //var url = '//api.songkick.com/api/3.0/artists/4186126/calendar.json?apikey=XFK6hX8iZ4LjPg6l&jsoncallback=?';
-    //$('.events').empty();
+    $('.events').empty();
     var city = $("#inputCity").val();
     try
     {
         var id = 'https://api.songkick.com/api/3.0/search/locations.json?query='+city+'&apikey=XFK6hX8iZ4LjPg6l';
+        var flag = true;
         console.log(id.metadata);
         $.getJSON(id, function (data) {
             //console.log(data.resultsPage.status);
@@ -37,10 +38,41 @@ $("#submiter").click(function(){
                         var event_city = array[index].location.city;
                         var event_link = array[index].uri;
                         var event_details =  '<p>' + event_performer + ' @ ' + event_venue + '</p><p>' + event_city + '</p><p><a href="' + event_link + '">More details</a></p>';
+                        var musics = $("#inputMusic").val();
+                        if(musics[0] != null)
+                        {
+//                           flag = false;
+                        var radio_url = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptags&artist=' + event_performer +
+                        '&api_key=4c9d0c1330e3918a1ed633547bd183a5&format=json';
 
-                        // if(event_month != 'Invalid date' && event_day != 'Invalid date') {
+                      $.getJSON(radio_url, function(data2) {
+                          if (data2.toptags != null)
+                          {
+//                                flag = false;
+                                var tags = data2.toptags.tag;
+
+                                tags.every(function(tag){
+                                        console.log(tag.name);
+                                if (tag.name.search(musics[0]) != -1)
+                                    {
+                                $('.events').append('<li><div class="date">' + array[index].start.date + '</div>' + event_details + '</li>');
+                                    return false;
+                                }
+                                else{
+                                return true;}
+                                });
+                            }
+                        });
+
+//                        if (flag){
+//                             $('.events').append('<li><div class="date">' + array[index].start.date + '</div>' + event_details + '</li>');
+//                         }
+
+                        }
+
+                        else{
                         $('.events').append('<li><div class="date">' + array[index].start.date + '</div>' + event_details + '</li>');
-                        // }
+                         }
                     });
                 });
             }
