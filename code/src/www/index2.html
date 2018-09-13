@@ -25,7 +25,7 @@
     <script src="bootstrap-3.3.7\docs\assets\js\ie-emulation-modes-warning.js"></script>
 
     <script src="jquery-3.3.1.js"></script>
-
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -38,8 +38,8 @@
 
     <form class="form-signin">
         <h2 class="form-signin-heading">Search for an event</h2>
-        <label for="inputMusic" class="sr-only"></label>
-        <input type="search" id="inputMusic" class="form-control" placeholder="Music genre" required autofocus>
+        <!--<label for="inputMusic" class="sr-only"></label>-->
+        <!--<input type="search" id="inputMusic" class="form-control" placeholder="Music genre" required autofocus>-->
         <label for="inputCity" class="sr-only"></label>
         <input type="search" id="inputCity" class="form-control" placeholder="City" required>
 
@@ -50,13 +50,14 @@
             <!--<li><a href="#">Another action</a></li>-->
             <!--<li><a href="#">Something else here</a></li>-->
             <!--</ul>-->
-            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-            <select multiple class="dropdown-menu" id="myDropdown">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+            <!--<button onclick="myFunction()" class="dropbtn">Dropdown</button>-->
+          <h3>Music genere: </h3>
+            <select multiple class="dropdown-menu" id="inputMusic" >
+                <option>pop</option>
+                <option>hip hop</option>
+                <option>jazz</option>
+                <option>rap</option>
+                <option>rock</option>
             </select>
         </div>
 
