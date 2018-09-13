@@ -8,7 +8,11 @@ $("#submiter").click(function(){
     var id = 'https://api.songkick.com/api/3.0/search/locations.json?query='+$("#inputCity").val()+'&apikey=XFK6hX8iZ4LjPg6l';
     console.log(id);
     $.getJSON(id, function (data) {
-        if(data.resultsPage.status == "error" || data.resultsPage.totalEntries == 0) {
+        if(data.resultsPage.status == "error") {
+            $('.events').append('<h1>Error finding location</h1>');
+        }
+        else if (data.resultsPage.totalEntries == 0)
+        {
             $('.events').append('<h1>Error finding location</h1>');
         }
         else {
