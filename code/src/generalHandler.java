@@ -12,7 +12,7 @@ import java.nio.file.Path;
 public class generalHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
-		String rootDir = "C:\\Users\\adi\\IdeaProjects\\Hackathon\\code\\src\\www\\";
+		String rootDir = "C:\\Users\\Michael\\oopEx\\Hackathon\\code\\src\\www\\";
 		httpExchange.sendResponseHeaders(200, 0);
 		OutputStream os = httpExchange.getResponseBody();
 		String uriPath = httpExchange.getRequestURI().getPath();
@@ -26,6 +26,8 @@ public class generalHandler implements HttpHandler {
 		while ((count = fs.read(buffer)) >= 0) {
 			os.write(buffer, 0, count);
 		}
+
+
 		fs.close();
 		os.close();
 	}

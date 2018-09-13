@@ -12,7 +12,7 @@ public class requestHandler implements HttpHandler {
         System.out.println(br.read());
 
         int b;
-        StringBuilder buf = new StringBuilder(512);
+        StringBuilder buf = new StringBuilder();
         while ((b = br.read()) != -1) {
             buf.append((char) b);
         }
@@ -21,25 +21,11 @@ public class requestHandler implements HttpHandler {
         br.close();
         isr.close();
 
-
-
-
-//        System.out.println(httpExchange.getRemoteAddress().toString());
-//        System.out.println(is.read());
-//        OutputStream os = httpExchange.getResponseBody();
-//        System.out.println(response.getBytes());
-
-
         //------------- General response
 		String response = "<h3>Welcome!</h3>";
         httpExchange.sendResponseHeaders(200, response.length());
         //-------------
-        // TODO: what to do with the request?
-        OutputStream os = httpExchange.getResponseBody();
-		os.write(response.getBytes());
 
         httpExchange.close();
-		os.close();
-
 	}
 }
