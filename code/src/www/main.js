@@ -1,3 +1,4 @@
+$(document).ready(main);
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -18,12 +19,19 @@ window.onclick = function(event) {
         }
     }
 }
+function main(){
+// Create a request variable and assign a new XMLHttpRequest object to it.
+var request = new XMLHttpRequest();
 
-function searcher() {
-    var form = document.createElement('form');
-    form.setAttribute('method', 'post');
-    form.setAttribute('action', 'http://google.com');
-    form.style.display = 'hidden';
-    document.body.appendChild(form);
-    form.submit();
+// Open a new connection, using the GET request on the URL endpoint
+request.open('GET', 'https://ghibliapi.herokuapp.com/films', true);
+
+request.onclick = function () {
+  // Begin accessing JSON data here
+  }
+}
+
+// Send request
+request.send();
+
 }
