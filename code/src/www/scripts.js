@@ -32,7 +32,7 @@ $("#submiter").click(function(){
                         // var event_month = (array[index].start.date);
                         // var event_day = array[index].start.datetime;
                         // var event_date = '<span class="month">'+ event_month +'</span><span class="day">'+ event_day +'</span>';
-
+                        console.log(array[index]);
                         var event_performer = array[index].performance[0].artist.displayName;
                         var event_venue = array[index].venue.displayName;
                         var event_city = array[index].location.city;

@@ -46,13 +46,13 @@
 
 
 
-<div class="container">
 
-    <div class="form-signin">
-        <h2 class="form-signin-heading">Search for an event</h2>
+
+    <div class="form-signin pull-left">
+        <h2 class="form-signin-heading">Search for</h2>
         <!--<label for="inputMusic" class="sr-only"></label>-->
         <!--<input type="search" id="inputMusic" class="form-control" placeholder="Music genre" required autofocus>-->
-        <label for="inputCity" class="sr-only"></label>
+        <!--<label for="inputCity" class="sr-only"></label>-->
         <input type="search" id="inputCity" class="form-control" placeholder="City" required>
 
         <div class="dropdown theme-dropdown clearfix">
@@ -63,7 +63,7 @@
             <!--<li><a href="#">Something else here</a></li>-->
             <!--</ul>-->
             <!--<button onclick="myFunction()" class="dropbtn">Dropdown</button>-->
-          <h3>Music genere: </h3>
+          <h3>Music genre: </h3>
             <select multiple class="dropdown-menu" id="inputMusic" >
                 <option>pop</option>
                 <option>hip hop</option>
@@ -77,20 +77,23 @@
             </select>
         </div>
 
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="free"> Only free events
-            </label>
-        </div>
+        <!--<div class="checkbox">-->
+            <!--<label>-->
+                <!--<input type="checkbox" value="free"> Only free events-->
+            <!--</label>-->
+        <!--</div>-->
         <button class="btn btn-lg btn-primary btn-block" id="submiter" >Search</button>
     </div>
 
-    <div>
-        <ul class="events"></ul>
-    </div>
+
     
     <!---<button id="submiter" >real Search</button> --->
-</div> <!-- /container -->
+<!--</div> &lt;!&ndash; /container &ndash;&gt;-->
+<div class="container">
+<div>
+    <ul class="events"></ul>
+</div>
+</div>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="scripts.js"></script>
