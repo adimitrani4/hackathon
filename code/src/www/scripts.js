@@ -37,6 +37,7 @@ $("#submiter").click(function(){
                         var event_venue = array[index].venue.displayName;
                         var event_city = array[index].location.city;
                         var event_link = array[index].uri;
+                        var event_date = array[index].start.date;
                         var event_details =  '<p>' + event_performer + ' @ ' + event_venue + '</p><p>' + event_city + '</p><p><a href="' + event_link + '">More details</a></p>';
                         var musics = $("#inputMusic").val();
                         if(musics[0] != null)
@@ -50,18 +51,24 @@ $("#submiter").click(function(){
                           {
 //                                flag = false;
                                 var tags = data2.toptags.tag;
-
                                 tags.every(function(tag){
-                                        console.log(tag.name);
-                                if (tag.name.search(musics[0]) != -1)
+
+                                 musics.every(function(music)
+                                 {
+                                 console.log(tag.name + " "+music + " " +tag.name.search(music));
+                                if (tag.name.search(music) != -1)
                                     {
-                                $('.events').append('<li><div class="date">' + array[index].start.date + '</div>' + event_details + '</li>');
+                                $('.events').append('<li><div class="date">'+ event_date + '</div><div class="music_tag">#'+music+'</div>' + event_details+'</li>');
                                     return false;
                                 }
                                 else{
                                 return true;}
                                 });
+                                });
                             }
+                            else{
+                             $('.events').append('<li><div class="date">' + array[index].start.date + '</div>' + event_details + '</li>');
+                             }
                         });
 
 //                        if (flag){
